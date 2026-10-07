@@ -17,7 +17,7 @@ export default function Navbar() {
     });
 
     return (
-        <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+        <header className="sticky top-0 z-50 border-b border-gray-200 bg-[#fafcfa]">
             <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
                 <Link href="/" className="flex items-center gap-2 leading-tight">
                     <Image

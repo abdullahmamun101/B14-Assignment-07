@@ -1,14 +1,24 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Hero() {
+  const today = new Date().toLocaleDateString("bn-BD", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Dhaka",
+  });
+
   return (
-    <section className="bg-[#f0f5f0] px-4 py-6 md:py-8">
+    <section className="px-4 py-6 md:py-8">
       <div className="mx-auto grid max-w-6xl items-center overflow-hidden rounded-3xl border border-gray-200 bg-[#fafcfa] px-5 py-8 md:grid-cols-2 md:px-8 md:py-10 lg:px-4 lg:py-10">
         
         {/* Left Content */}
         <div className="max-w-2xl">
           <p className="mb-3 inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-700">
-            বুধবার, ৭ অক্টোবর, ২০২৬
+            {today}
           </p>
 
           <h1 className="text-4xl font-bold leading-[1.05] text-gray-900 sm:text-5xl lg:text-[46px]">
