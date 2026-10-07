@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import PriceTicker from "@/components/PriceTicker";
 
 const bengaliFont = Noto_Sans_Bengali({
   subsets: ["bengali"],
@@ -23,6 +24,7 @@ export default function RootLayout({
         className={`${bengaliFont.className} flex min-h-screen flex-col bg-gray-50 text-gray-800`}
       >
         <Navbar />
+        <PriceTicker />
         <main className="flex-1">{children}</main>
       </body>
     </html>

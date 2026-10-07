@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 13s linear infinite;
+  will-change: transform;
+}
