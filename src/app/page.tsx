@@ -3,7 +3,7 @@ import PriceChangeSection from "@/components/PriceChangeSection";
 import AllProductsSection from "@/components/AllProductsSection";
 
 const API_URL =
-  "https://api.api-store.workers.dev/api/bazardor/products";
+  "https://api.abcz.workers.dev/api/bazardor/products";
 
 type Product = {
   id: number;

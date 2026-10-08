@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const API_URL =
-  "https://api.api-store.workers.dev/api/bazardor/products";
+  "https://api.abcz.workers.dev/api/bazardor/products";
 
 type Market = {
   market: string;

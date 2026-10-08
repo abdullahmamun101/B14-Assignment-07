@@ -11,7 +11,7 @@ const bengaliFont = Noto_Sans_Bengali({
 });
 
 const API_URL =
-  "https://api.api-store.workers.dev/api/bazardor/products";
+  "https://api.abcz.workers.dev/api/bazardor/products";
 
 type Product = {
   id: number;
