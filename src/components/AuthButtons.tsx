@@ -39,7 +39,7 @@ export default function AuthButtons() {
         </Link>
         <Link
           href="/signup"
-          className="btn btn-success btn-sm text-white sm:btn-md"
+          className="btn btn-sm border-0 bg-[#05883e] text-white hover:bg-[#04702f] sm:btn-md"
         >
           সাইন আপ
         </Link>
