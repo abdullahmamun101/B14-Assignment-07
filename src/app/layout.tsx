@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PriceTicker from "@/components/PriceTicker";
 import Footer from "@/components/Footer";
+import ToasterProvider from "@/components/ToasterProvider";
 
 const bengaliFont = Noto_Sans_Bengali({
   subsets: ["bengali"],
@@ -58,6 +59,7 @@ export default async function RootLayout({
         className={`${bengaliFont.className} flex min-h-screen flex-col bg-gray-50 text-gray-800`}
       >
         <Navbar />
+        <ToasterProvider />
 
         <PriceTicker products={products} />
 

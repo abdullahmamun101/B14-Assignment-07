@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { categories } from "@/lib/categories";
+import AuthButtons from "@/components/AuthButtons";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -39,18 +40,7 @@ export default function Navbar() {
                     </div>
                 </Link>
 
-                <div className="flex gap-2">
-                    <Link href="/signin" className="btn btn-outline btn-sm sm:btn-md">
-                        সাইন ইন
-                    </Link>
-                    <Link
-                        href="/signup"
-                        className="btn btn-sm text-white sm:btn-md"
-                        style={{ backgroundColor: '#047c37' }}
-                    >
-                        সাইন আপ
-                    </Link>
-                </div>
+                <AuthButtons />
             </div>
 
             <nav className="mx-auto max-w-6xl overflow-x-auto px-4 pb-3">

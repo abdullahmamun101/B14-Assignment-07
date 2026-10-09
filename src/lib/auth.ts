@@ -1,37 +1,20 @@
+import dns from "node:dns";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient(process.env.MONGODB_URI!);
 
-const db = client.db("bazardor");
+if (process.env.NODE_ENV === "development") {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+}
+
+const client = new MongoClient(process.env.MONGODB_URI as string);
+const db = client.db();
 
 export const auth = betterAuth({
   database: mongodbAdapter(db),
-
   emailAndPassword: {
     enabled: true,
-  },
-
-  socialProviders: {
-    ...(process.env.GOOGLE_CLIENT_ID &&
-    process.env.GOOGLE_CLIENT_SECRET
-      ? {
-          google: {
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-          },
-        }
-      : {}),
-
-    ...(process.env.GITHUB_CLIENT_ID &&
-    process.env.GITHUB_CLIENT_SECRET
-      ? {
-          github: {
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET,
-          },
-        }
-      : {}),
+    autoSignIn: false,
   },
 });
