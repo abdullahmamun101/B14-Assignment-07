@@ -62,6 +62,7 @@ export default function SignInPage() {
       provider,
       callbackURL: getCallbackUrl(),
     });
+    console.log(error);
     if (error) toast.error(error.message || "সোশ্যাল লগইন করা যায়নি");
   }
 

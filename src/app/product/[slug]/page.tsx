@@ -232,7 +232,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
           </h2>
 
           <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
-            <table className="w-full min-w-[700px] border-collapse text-sm">
+            <table className="w-full min-w-700px border-collapse text-sm">
               <thead>
                 <tr className="border-b border-gray-200 bg-[#f0f5f0]">
                   <th className="px-4 py-3 text-left font-semibold text-gray-600">

@@ -44,8 +44,9 @@ export default function SignUpPage() {
       return;
     }
 
-    toast.success("অ্যাকাউন্ট তৈরি হয়েছে! এখন সাইন ইন করুন");
-    router.push("/signin");
+    toast.success("অ্যাকাউন্ট তৈরি হয়েছে!");
+    router.push("/");
+    router.refresh();
   }
 
   async function handleSocial(provider: "google" | "github") {
