@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -8,9 +8,28 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
 
+
+function getCallbackUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const url = params.get("callbackUrl");
+
+
+  if (url && url.startsWith("/") && !url.startsWith("//")) {
+    return url;
+  }
+  return "/";
+}
+
 export default function SignInPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("login") === "required") {
+      toast.error("এই পেজ দেখতে সাইন ইন করুন", { id: "login-required" });
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,14 +53,14 @@ export default function SignInPage() {
     }
 
     toast.success("সফলভাবে সাইন ইন হয়েছে");
-    router.push("/");
+    router.push(getCallbackUrl());
     router.refresh();
   }
 
   async function handleSocial(provider: "google" | "github") {
     const { error } = await authClient.signIn.social({
       provider,
-      callbackURL: "/",
+      callbackURL: getCallbackUrl(),
     });
     if (error) toast.error(error.message || "সোশ্যাল লগইন করা যায়নি");
   }

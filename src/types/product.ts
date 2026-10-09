@@ -1,3 +1,10 @@
+export type Market = {
+  market: string;
+  division: string;
+  min: number;
+  max: number;
+};
+
 export type Product = {
   id: number;
   slug: string;
@@ -15,4 +22,5 @@ export type Product = {
     dir: "up" | "down" | "flat";
     pct: number;
   };
+  markets?: Market[];
 };
